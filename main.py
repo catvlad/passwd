@@ -37,7 +37,7 @@ def mirroring(name):
 
 def dispersion(name):
     name = str(name)
-    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), probros(name,"rus"), probros(translit(name),"eng")]
+    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), probros(name,"rus"), probros(translit(name),"eng"), mirroring(name)]
     return allname
 
 def withtop100(name):
