@@ -1,7 +1,15 @@
-def mirroring(name):
-    text=""
+def translit(name):
+    eng = ["q", 'w', "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c",
+           "v", "b", "n", "m", ]
+    rus = ["ю", "в", 'е', "р", "т", "й", "у", "и", "о", "п", "а", "с", "д", "ф", "г", "х", "ж", "к", "л", "з", "ъ", "ц",
+           "в", "б", "н", "м", ]
     for i in name:
-        text+=name[len(name)-int(name.find(i))-1]
-    return text
+        for j in eng:
+            if (i == j):
+                name = name.replace(name[name.find(i)], rus[eng.index(j)])
+            if (i == j.upper()):
+                name = name.replace(name[name.find(i)], rus[eng.index(j)].upper())
 
-print(mirroring("Lena"))
+    return name
+
+translit("Vlad")
