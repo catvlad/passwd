@@ -1,5 +1,5 @@
 # PASSWORD ATTACKER
-top100 = ["123456","password","12345678","qwerty","123456789","12345","1234","111111","1234567","dragon","123123","abc123","football","monkey","letmein","696969","shadow","master","666666","qwertyuiop","123321","mustang","1234567890","michael","654321","pussy","superman","1qaz2wsx","7777777","fuckyou","121212","000000","qazwsx","123qwe","trustno1","jordan","jennifer","zxcvbnm","asdfgh","hunter","buster","soccer","harley","batman","andrew","tigger","sunshine","iloveyou","fuckme","2000","charlie","robert","thomas","hockey","ranger","daniel","starwars","klaster","112233","george","asshole","computer","michelle","jessica","pepper","1111","zxcvbn","555555","11111111","131313","freedom","777777","pass","fuck","maggie","159753","aaaaaa","ginger","princess","joshua","cheese","amanda","summer","love","6969","chelsea","biteme","matthew","access","yankees","987654321","dallas","austin","thunder","matrix"]
+top100 = ["123456","password","12345678","qwerty","123456789","12345","1234","111111","1234567","dragon","123123","abc123","football","monkey","letmein","696969","shadow","master","666666","qwertyuiop","123321","mustang","1234567890","michael","654321","pussy","superman","1qaz2wsx","7777777","fuckyou","121212","000000","qazwsx","123qwe","trustno1","jordan","jennifer","zxcvbnm","asdfgh","hunter","buster","soccer","harley","batman","andrew","tigger","sunshine","iloveyou","fuckme","2000","charlie","robert","thomas","hockey","ranger","daniel","starwars","klaster","112233","george","computer","michelle","jessica","1111","zxcvbn","555555","11111111","131313","freedom","777777","pass","fuck","maggie","159753","aaaaaa","princess","cheese","summer","love","6969","chelsea","access","yankees","987654321","matrix"]
 name = input("Name: ")
 years = input("Years of Birds: ")
 
@@ -18,7 +18,7 @@ def translit(name):
 
     return name
 # probros method. return text
-def probros(name, lang):
+def mapping(name, lang):
     eng = ["q", 'w', "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "<", ">"]
     rus = ["й","ц", 'у', "к", "е", "н", "г", "ш", "щ", "з", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю"]
     if (lang=="eng"):
@@ -45,7 +45,7 @@ def mirroring(name):
 
 def dispersion(name):
     name = str(name)
-    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), probros(name,"rus"), probros(translit(name),"eng"), probros(translit(name.lower()), "eng"), mirroring(name)]
+    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), mapping(name, "rus"), mapping(translit(name), "eng"), mapping(translit(name.lower()), "eng"), mirroring(name)]
     return allname
 
 def withtop100(name):
