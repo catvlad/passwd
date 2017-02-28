@@ -26,11 +26,15 @@ def probros(name, lang):
             for j in rus:
                 if (i==j):
                     name = name.replace(name[name.find(i)], eng[rus.index(j)])
+                if (i == j.upper()):
+                    name = name.replace(name[name.find(i)], eng[rus.index(j)].upper())
     elif (lang=="rus"):
         for i in name:
             for j in eng:
                 if (i==j):
                     name = name.replace(name[name.find(i)], rus[eng.index(j)])
+                if (i==j.upper()):
+                    name = name.replace(name[name.find(i)], rus[eng.index(j)].upper())
     return name
 
 def mirroring(name):
@@ -41,7 +45,7 @@ def mirroring(name):
 
 def dispersion(name):
     name = str(name)
-    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), probros(name,"rus"), probros(translit(name),"eng"), mirroring(name)]
+    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), probros(name,"rus"), probros(translit(name),"eng"), probros(translit(name.lower()), "eng"), mirroring(name)]
     return allname
 
 def withtop100(name):

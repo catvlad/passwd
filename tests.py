@@ -12,4 +12,4 @@ def translit(name):
 
     return name
 
-translit("Vlad")
+print(translit("Vlad"))
