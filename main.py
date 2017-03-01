@@ -56,7 +56,8 @@ def withtop100(name):
         print(str(i) + str(name))
 
 def yearsvar(name,year):
-    return [str(name)+str(year), str(name)+str(int(year)%100), str(year) + str(name), str(int(year) % 100) + str(name)]
+    return [str(name)+str(year), str(name)+str(int(year)%100), str(year) + str(name), str(int(year) % 100) + str(name),
+            str(name)+str(day)+str(month)+str(year), str(name)+str(day)+str(year), str(name)+str(day)+str(int(year)%100)]
 
 def attac_by_alldate(name):
     for year in range(1920, 2018):
