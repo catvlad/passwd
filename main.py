@@ -1,6 +1,7 @@
 # PASSWORD ATTACKER
 top100 = ["123456","123","321", "password","12345678","qwerty","123456789","12345","1234","111111","1234567","123123","abc123","football","monkey","letmein","696969","shadow","master","666666","qwertyuiop","123321","mustang","1234567890","michael","654321","pussy","superman","1qaz2wsx","7777777","fuckyou","121212","000000","qazwsx","123qwe","trustno1","jordan","jennifer","zxcvbnm","asdfgh","hunter","buster","soccer","harley","batman","andrew","sunshine","iloveyou","fuckme","2000","robert","thomas","hockey","starwars","112233","george","computer","michelle","jessica","1111","zxcvbn","555555","11111111","131313","freedom","777777","pass","fuck","maggie","159753","aaaaaa","princess","cheese","summer","love","6969","chelsea","access","yankees","987654321","matrix", "!@#", "#@!", "!@#$", "$#@!", "!!!"]
 name = input("Name: ")
+lastname = input("Last name: ")
 years = input("Years of Birds: ")
 month = input("Month of birth: ")
 day = input("Day of birth: ")
@@ -55,9 +56,19 @@ def withtop100(name):
         print(str(name) + str(i))
         print(str(i) + str(name))
 
-def yearsvar(name,year):
-    return [str(name)+str(year), str(name)+str(int(year)%100), str(year) + str(name), str(int(year) % 100) + str(name),
-            str(name)+str(day)+str(month)+str(year), str(name)+str(day)+str(year), str(name)+str(day)+str(int(year)%100)]
+def yearsvar(name,lastname,year):
+    return [str(name)+str(year),
+            str(name)+str(int(year)%100),
+            str(year) + str(name),
+            str(int(year) % 100) + str(name),
+            str(name)+str(lastname),
+            str(lastname)+str(name),
+            str(lastname)+str(name)+str(year),
+            str(name)+str(lastname)+str(year),
+            str(name)+str(lastname)+str(int(year)%100),
+            str(name)+str(day)+str(month)+str(year),
+            str(name)+str(day)+str(year),
+            str(name)+str(day)+str(int(year)%100)]
 
 def attac_by_alldate(name):
     for year in range(1920, 2018):
@@ -77,7 +88,7 @@ for i in top100:
 for names in dispersion(name):
     print(names * 3)
     print(names * 2)
-    #withtop100(names)
-    for i in yearsvar(names,years):
+    withtop100(names)
+    for i in yearsvar(names,lastname,years):
         print(i)
-        #withtop100(i)
+        withtop100(i)
