@@ -5,6 +5,7 @@ lastname = input("Last name: ")
 years = input("Years of Birds: ")
 month = input("Month of birth: ")
 day = input("Day of birth: ")
+top100_support = input("Add support top100 in passwd? ")
 
 # translite method. return text
 def translit(name):
@@ -82,13 +83,16 @@ def attac_by_alldate(name):
 def attac_by_year(name, year):
     fyear(name,year)
 
-for i in top100:
-    print(i)
+if (top100_support=="1"):
+    for i in top100:
+        print(i)
 
 for names in dispersion(name):
     print(names * 3)
     print(names * 2)
-    withtop100(names)
+    if (top100_support == "1"):
+        withtop100(names)
     for i in yearsvar(names,lastname,years):
         print(i)
-        withtop100(i)
+        if (top100_support=="1"):
+            withtop100(i)
