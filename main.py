@@ -1,5 +1,5 @@
 # PASSWORD ATTACKER
-top100 = ["123456","123","321", "password","12345678","qwerty","123456789","12345","1234","111111","1234567","123123","abc123","football","monkey","letmein","696969","shadow","master","666666","qwertyuiop","123321","mustang","1234567890","michael","654321","pussy","superman","1qaz2wsx","7777777","fuckyou","121212","000000","qazwsx","123qwe","trustno1","jordan","jennifer","zxcvbnm","asdfgh","hunter","buster","soccer","harley","batman","andrew","sunshine","iloveyou","fuckme","2000","robert","thomas","hockey","starwars","112233","george","computer","michelle","jessica","1111","zxcvbn","555555","11111111","131313","freedom","777777","pass","fuck","maggie","159753","aaaaaa","princess","cheese","summer","love","6969","chelsea","access","yankees","987654321","matrix", "!@#", "#@!", "!@#$", "$#@!", "!!!"]
+top = ["123456", "123456789", "qwerty", "111111", "1234567890", "1234567", "12345678", "123321h", "000000", "123123", "7777777", "qwertyuiop", "666666", "123qwe", "555555", "zxcvbnm", "1q2w3e", "gfhjkm", "qazwsx", "1q2w3e4r", "654321", "987654321", "121212", "zxcvbn", "777777", "1q2w3e4r5t", "qazwsxedc", "123456a", "112233", "qwe123", "ghbdtn", "159753", "123456q", "asdfgh", "1111111", "samsung", "qweasdzxc", "qwertyu", "1234qwer", "11111111", "222222", "asdfghjkl", "1qaz2wsx", "qweqwe", "1111111111", "123654", "123123123", "987654321", "12345q", "999999", "qwerty123", "123456789a", "12345a"]
 name = input("Name: ")
 lastname = input("Last name: ")
 years = input("Years of Birds: ")
@@ -11,7 +11,7 @@ top100_support = input("Add support top100 in passwd? ")
 def translit(name):
     eng = ["q", 'w', "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c",
            "v", "b", "n", "m", ]
-    rus = ["ю", "в", 'е', "р", "т", "й", "у", "и", "о", "п", "а", "с", "д", "ф", "г", "х", "ж", "к", "л", "з", "ъ", "ц",
+    rus = ["ю", "в", 'е', "р", "т", "й", "у", "и", "о", "п", "а", "с", "д", "ф", "г", "х", "ж", "к", "л", "з", "кс", "ц",
            "в", "б", "н", "м", ]
     for i in name:
         for j in eng:
@@ -21,10 +21,10 @@ def translit(name):
                 name = name.replace(name[name.find(i)], rus[eng.index(j)].upper())
 
     return name
-# probros method. return text
+# mapping method. return text
 def mapping(name, lang):
-    eng = ["q", 'w', "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "<", ">"]
-    rus = ["й","ц", 'у', "к", "е", "н", "г", "ш", "щ", "з", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю"]
+    eng = ["q", 'w', "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", "<", ">", "`"]
+    rus = ["й","ц", 'у', "к", "е", "н", "г", "ш", "щ", "з", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", "ё"]
     if (lang=="eng"):
         for i in name:
             for j in rus:
@@ -40,22 +40,24 @@ def mapping(name, lang):
                 if (i==j.upper()):
                     name = name.replace(name[name.find(i)], rus[eng.index(j)].upper())
     return name
-
+# mirroring text
 def mirroring(name):
     text=""
     for i in name:
         text+=name[len(name)-int(name.find(i))-1]
     return text
-
+# some variation of text
 def dispersion(name):
     name = str(name)
-    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), mapping(name, "rus"), mapping(translit(name), "eng"), mapping(translit(name.lower()), "eng"), mirroring(name)]
+    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), mapping(name, "rus"), mapping(translit(name), "eng"), mapping(translit(name.lower()), "eng")]
     return allname
-
-def withtop100(name):
-    for i in top100:
-        print(str(name) + str(i))
-        print(str(i) + str(name))
+# add top password
+def withtop(text):
+    for i in top:
+        print(str(text) + str(i))
+        print(str(text) + str(i) + str(text))
+        print(str(i) + str(text))
+        print(str(i) + str(text) + str(i))
 
 def yearsvar(name,lastname,year):
     return [str(name)+str(year),
@@ -74,25 +76,20 @@ def yearsvar(name,lastname,year):
 def attac_by_alldate(name):
     for year in range(1920, 2018):
 
-        fyear(name,year)
-
         for month in range(1,13):
             for day in range(1,32):
                 print(str(name)+str(day)+str(month)+str(year))
 
-def attac_by_year(name, year):
-    fyear(name,year)
-
 if (top100_support=="1"):
-    for i in top100:
+    for i in top:
         print(i)
 
 for names in dispersion(name):
     print(names * 3)
     print(names * 2)
     if (top100_support == "1"):
-        withtop100(names)
+        withtop(names)
     for i in yearsvar(names,lastname,years):
         print(i)
         if (top100_support=="1"):
-            withtop100(i)
+            withtop(i)
