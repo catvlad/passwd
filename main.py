@@ -1,5 +1,5 @@
 # PASSWORD ATTACKER
-top = ["123456", "123456789", "qwerty", "111111", "1234567890", "1234567", "12345678", "123321h", "000000", "123123", "7777777", "qwertyuiop", "666666", "123qwe", "555555", "zxcvbnm", "1q2w3e", "gfhjkm", "qazwsx", "1q2w3e4r", "654321", "987654321", "121212", "zxcvbn", "777777", "1q2w3e4r5t", "qazwsxedc", "123456a", "112233", "qwe123", "ghbdtn", "159753", "123456q", "asdfgh", "1111111", "samsung", "qweasdzxc", "qwertyu", "1234qwer", "11111111", "222222", "asdfghjkl", "1qaz2wsx", "qweqwe", "1111111111", "123654", "123123123", "987654321", "12345q", "999999", "qwerty123", "123456789a", "12345a"]
+top = ["123456", "qwe", "123", "321", "147", "123456789", "qwerty", "111111", "1234567890", "1234567", "12345678", "123321h", "000000", "123123", "7777777", "qwertyuiop", "666666", "123qwe", "555555", "zxcvbnm", "1q2w3e", "gfhjkm", "qazwsx", "1q2w3e4r", "654321", "987654321", "121212", "zxcvbn", "777777", "1q2w3e4r5t", "qazwsxedc", "123456a", "112233", "qwe123", "ghbdtn", "159753", "123456q", "asdfgh", "1111111", "samsung", "qweasdzxc", "qwertyu", "1234qwer", "11111111", "222222", "asdfghjkl", "1qaz2wsx", "qweqwe", "1111111111", "123654", "123123123", "987654321", "12345q", "999999", "qwerty123", "123456789a", "12345a"]
 name = input("Name: ")
 lastname = input("Last name: ")
 years = input("Years of Birds: ")
@@ -50,7 +50,7 @@ def mirroring(name):
 # some variation of text
 def dispersion(name):
     name = str(name)
-    allname = [name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), mapping(name, "rus"), mapping(translit(name), "eng"), mapping(translit(name.lower()), "eng")]
+    allname = [name, name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), mapping(name, "rus"), mapping(translit(name), "eng"), mapping(translit(name.lower()), "eng")]
     return allname
 # add top password
 def withtop(text):
@@ -82,7 +82,9 @@ def with_year(name):
             str(name)+str(day)+str(years),
             str(name)+str(int(years)%100),
             str(name)+str(day)+str(month)+str(int(years)%100),
-            str(name) + str(day) + str(int(years)%100),]
+            str(name) + str(day) + str(int(years)%100),
+            str(years)+str(name),
+            str(int(years)%100)+str(name)]
 
 def attac_by_alldate(name):
     for year in range(1920, 2018):
@@ -98,9 +100,15 @@ if (top100_support=="1"):
 for names in dispersion(name):
     print(names * 3)
     print(names * 2)
-    if (top100_support == "1"):
-        withtop(names)
-    for i in yearsvar(names,lastname,years):
-        print(i)
-        if (top100_support=="1"):
-            withtop(i)
+    for lastnames in dispersion(lastname):
+        for i in with_year(names):
+            print(i)
+            if (top100_support == "1"):
+                withtop(i)
+
+        for i in with_year(str(names)+str(lastname)):
+            print(i)
+            if (top100_support == "1"):
+                withtop(i)
+        if (top100_support == "1"):
+            withtop(names)
