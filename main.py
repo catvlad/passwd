@@ -5,6 +5,7 @@ lastname = input("Last name: ")
 years = input("Years of Birds: ")
 month = input("Month of birth: ")
 day = input("Day of birth: ")
+phone = input("Mobile phone number: ")
 top100_support = input("Add support top100 in passwd? ")
 
 # translite method. return text
@@ -70,8 +71,18 @@ def yearsvar(name,lastname,year):
             str(name)+str(lastname)+str(year),
             str(name)+str(lastname)+str(int(year)%100),
             str(name)+str(day)+str(month)+str(year),
+            str(name)+str(day)+str(month)+str(int(year)%100),
             str(name)+str(day)+str(year),
             str(name)+str(day)+str(int(year)%100)]
+
+def with_year(name):
+    return [str(name)+str(years),
+            str(name)+str(day)+str(month)+str(years),
+            str(name)+str(day)+str(month),
+            str(name)+str(day)+str(years),
+            str(name)+str(int(years)%100),
+            str(name)+str(day)+str(month)+str(int(years)%100),
+            str(name) + str(day) + str(int(years)%100),]
 
 def attac_by_alldate(name):
     for year in range(1920, 2018):
