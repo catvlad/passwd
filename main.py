@@ -7,6 +7,7 @@ month = input("Month of birth: ")
 day = input("Day of birth: ")
 phone = input("Mobile phone number: ")
 top100_support = input("Add support top100 in passwd? ")
+idiot = input("Жертва идиот? ")
 
 # translite method. return text
 def translit(name):
@@ -43,14 +44,15 @@ def mapping(name, lang):
     return name
 # mirroring text
 def mirroring(name):
-    text=""
-    for i in name:
-        text+=name[len(name)-int(name.find(i))-1]
-    return text
+    if (int(idiot)==1):
+        text=""
+        for i in name:
+            text+=name[len(name)-int(name.find(i))-1]
+        return text
 # some variation of text
-def dispersion(name):
-    name = str(name)
-    allname = [name, name.lower(), name.upper(), name.capitalize(), name.swapcase(), translit(name), mapping(name, "rus"), mapping(translit(name), "eng"), mapping(translit(name.lower()), "eng")]
+def dispersion(text):
+    text = str(text)
+    allname = [text, text.lower(), text.upper(), text.capitalize(), text.swapcase(), translit(text), mirroring(text), mapping(text, "rus"), mapping(translit(text), "eng"), mapping(translit(text.lower()), "eng")]
     return allname
 # add top password
 def withtop(text):
@@ -110,5 +112,11 @@ for names in dispersion(name):
             print(i)
             if (top100_support == "1"):
                 withtop(i)
+
+        for i in with_year(str(lastnames)+str(names)):
+            print(i)
+            if (top100_support == "1"):
+                withtop(i)
+
         if (top100_support == "1"):
             withtop(names)
