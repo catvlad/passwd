@@ -1,5 +1,5 @@
 # PASSWORD ATTACKER
-top = ["123456", "qwe", "123", "321", "147", "123456789", "qwerty", "111111", "1234567890", "1234567", "12345678", "123321h", "000000", "123123", "7777777", "qwertyuiop", "666666", "123qwe", "555555", "zxcvbnm", "1q2w3e", "gfhjkm", "qazwsx", "1q2w3e4r", "654321", "987654321", "121212", "zxcvbn", "777777", "1q2w3e4r5t", "qazwsxedc", "123456a", "112233", "qwe123", "ghbdtn", "159753", "123456q", "asdfgh", "1111111", "samsung", "qweasdzxc", "qwertyu", "1234qwer", "11111111", "222222", "asdfghjkl", "1qaz2wsx", "qweqwe", "1111111111", "123654", "123123123", "987654321", "12345q", "999999", "qwerty123", "123456789a", "12345a"]
+top = ["123456", "qwe", "123", "321", "147", "123456789", "qwerty", "111111", "1234", "4321", "12345678", "123321h", "000000", "123123", "7777777", "qwertyuiop", "666666", "123qwe", "555555", "zxcvbnm", "1q2w3e", "gfhjkm", "qazwsx", "1q2w3e4r", "654321", "987654321", "121212", "zxcvbn", "777777", "1q2w3e4r5t", "qazwsxedc", "123456a", "112233", "qwe123", "ghbdtn", "159753", "123456q", "asdfgh", "1111111", "samsung", "qweasdzxc", "qwertyu", "1234qwer", "11111111", "222222", "asdfghjkl", "1qaz2wsx", "qweqwe", "1111111111", "123654", "123123123", "987654321", "12345q", "999999", "qwerty123", "123456789a", "12345a"]
 name = input("Name: ")
 lastname = input("Last name: ")
 years = input("Years of Birds: ")
@@ -95,28 +95,30 @@ def attac_by_alldate(name):
             for day in range(1,32):
                 print(str(name)+str(day)+str(month)+str(year))
 
+def top100add(text):
+    if (top100_support == "1"):
+        withtop(text)
+
 if (top100_support=="1"):
     for i in top:
         print(i)
 
 for names in dispersion(name):
-    print(str(names) * 3)
-    print(str(names) * 2)
+    if (str(names)!=""):
+        print(str(names) * 3)
+        print(str(names) * 2)
     for lastnames in dispersion(lastname):
         for i in with_year(names):
             print(i)
-            if (top100_support == "1"):
-                withtop(i)
+            top100add(i)
 
         for i in with_year(str(names)+str(lastnames)):
             print(i)
-            if (top100_support == "1"):
-                withtop(i)
+            top100add(i)
 
         for i in with_year(str(lastnames)+str(names)):
             print(i)
-            if (top100_support == "1"):
-                withtop(i)
+            top100add(i)
 
-        if (top100_support == "1"):
-            withtop(names)
+        top100add(names)
+        top100add(lastname)
