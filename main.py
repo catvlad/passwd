@@ -8,6 +8,7 @@ day = input("Day of birth: ")
 phone = input("Mobile phone number: ")
 top100_support = input("Add support top100 in passwd? ")
 idiot = input("Жертва идиот? ")
+minlengh = input("Minimal lenghht of password: ")
 
 # translite method. return text
 def translit(name):
@@ -122,3 +123,4 @@ for names in dispersion(name):
 
         top100add(names)
         top100add(lastname)
+
