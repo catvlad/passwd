@@ -52,7 +52,7 @@ def mirroring(name):
 # some variation of text
 def dispersion(text):
     text = str(text)
-    allname = [text, text.lower(), text.upper(), text.capitalize(), text.swapcase(), translit(text), mirroring(text), mapping(text, "rus"), mapping(translit(text), "eng"), mapping(translit(text.lower()), "eng")]
+    allname = ["", text, text.lower(), text.upper(), text.capitalize(), text.swapcase(), translit(text), mirroring(text), mapping(text, "rus"), mapping(translit(text), "eng"), mapping(translit(text.lower()), "eng")]
     return allname
 # add top password
 def withtop(text):
@@ -100,15 +100,15 @@ if (top100_support=="1"):
         print(i)
 
 for names in dispersion(name):
-    print(names * 3)
-    print(names * 2)
+    print(str(names) * 3)
+    print(str(names) * 2)
     for lastnames in dispersion(lastname):
         for i in with_year(names):
             print(i)
             if (top100_support == "1"):
                 withtop(i)
 
-        for i in with_year(str(names)+str(lastname)):
+        for i in with_year(str(names)+str(lastnames)):
             print(i)
             if (top100_support == "1"):
                 withtop(i)
